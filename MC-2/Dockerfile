@@ -11,6 +11,7 @@ EXPOSE 19132/udp
 WORKDIR /minecraft-server-data-2
 
 ADD https://minecraft.azureedge.net/bin-linux/bedrock-server-1.18.2.03.zip /minecraft-server-data-2
+ADD https://github.com/chrise01/MC.git/MC-2/server.properties /minecraft-server-data-2
 
 RUN unzip bedrock-server-1.18.2.03.zip && \
     rm bedrock-server-1.18.2.03.zip && \

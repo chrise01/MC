@@ -1,4 +1,6 @@
 git clone https://github.com/chrise01/MC.git
+chmod 774 ~/Desktop/MC/MC-1.sh
+chmod 774 ~/Desktop/MC/MC-2.sh
 
 ./MC-1.sh
 

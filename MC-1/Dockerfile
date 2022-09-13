@@ -10,10 +10,10 @@ EXPOSE 19132/udp
 
 WORKDIR /minecraft-server-data-1
 
-ADD https://minecraft.azureedge.net/bin-linux/bedrock-server-1.18.2.03.zip /minecraft-server-data-1
+ADD https://minecraft.azureedge.net/bin-linux/bedrock-server-1.19.22.01.zip /minecraft-server-data-1
 
-RUN unzip bedrock-server-1.18.2.03.zip && \
-    rm bedrock-server-1.18.2.03.zip && \
+RUN unzip bedrock-server-1.19.22.01.zip && \
+    rm bedrock-server-1.19.22.01.zip && \
     chmod +x bedrock_server
 
 
@@ -21,3 +21,5 @@ RUN unzip bedrock-server-1.18.2.03.zip && \
 CMD LD_LIBRARY_PATH=. ./bedrock_server
 
 VOLUME ["/minecraft-server-data-1"]
+
+

@@ -1,0 +1,67 @@
+
+# automated build/run
+
+sudo snap curl install
+curl https://raw.githubusercontent.com/TheRemote/MinecraftBedrockServer/master/SetupMinecraft.sh | bash
+
+
+###
+
+
+
+
+
+###
+
+#!/bin/bash
+sudo snap curl install
+sudo apt install wget
+#Cloud Ops agent
+:> agents_to_install.csv && \
+echo '"projects/innate-empire-342903/zones/us-central1-a/instances/instance-1","[{""type"":""ops-agent""}]"' >> agents_to_install.csv && \
+curl -sSO https://dl.google.com/cloudagents/mass-provision-google-cloud-ops-agents.py && \
+python3 mass-provision-google-cloud-ops-agents.py --file agents_to_install.csv
+
+#MC Install
+
+
+sudo wget $DOWNLOAD_URL -O /home/mcserver/minecraft_bedrock/bedrock-server.zip
+
+sudo unzip /home/mcserver/minecraft_bedrock/bedrock-server.zip -d /home/mcserver/minecraft_bedrock/
+
+sudo chown -R mcserver:mcserver /home/mcserver/
+
+cd ~/mcserver/
+sudo LD_LIBRARY_PATH=. ./bedrock_server
+
+#####WORKING####
+sudo apt install unzip
+sudo apt install wget
+sudo mkdir ~/mcserver
+sudo chown -R mcserver:mcserver ~/mcserver/
+
+sudo wget https://minecraft.azureedge.net/bin-linux/bedrock-server-1.19.22.01.zip
+sudo unzip ~/mcserver/bedrock-server-1.19.22.01.zip -d ~/mcserver/
+
+cd ~/mcserver/
+sudo LD_LIBRARY_PATH=. ./bedrock_server
+
+34.87.219.211
+
+
+sudo lsblk
+  
+sudo mkfs.ext4 -m 0 -E lazy_itable_init=0,lazy_journal_init=0,discard /dev/sdb
+sudo mkdir -p /mnt/disks/mc/
+sudo mount -o discard,defaults /dev/sdb /mnt/disks/mc
+sudo chmod a+w /mnt/disks/mc
+
+
+rsync -avz --show-progress /path/of/source /path/of/
+
+#####
+GCP VM deployment with disk attacment
+
+gcloud compute instances create mc-1-2 --project=innate-empire-342903 --zone=australia-southeast1-b --machine-type=e2-highcpu-2 --network-interface=network-tier=PREMIUM,subnet=default --no-restart-on-failure --maintenance-policy=TERMINATE --provisioning-model=SPOT --instance-termination-action=DELETE --service-account=137504260976-compute@developer.gserviceaccount.com --scopes=https://www.googleapis.com/auth/devstorage.read_only,https://www.googleapis.com/auth/logging.write,https://www.googleapis.com/auth/monitoring.write,https://www.googleapis.com/auth/servicecontrol,https://www.googleapis.com/auth/service.management.readonly,https://www.googleapis.com/auth/trace.append --tags=mc-tag --create-disk=auto-delete=yes,boot=yes,device-name=mc-1-2,image=projects/debian-cloud/global/images/debian-11-bullseye-v20220822,mode=rw,size=10,type=projects/innate-empire-342903/zones/us-central1-a/diskTypes/pd-balanced --disk=boot=no,device-name=disk-1-mc,mode=rw,name=disk-1-mc --no-shielded-secure-boot --shielded-vtpm --shielded-integrity-monitoring --labels=app=mc --reservation-affinity=any
+
+

@@ -2,6 +2,9 @@
 
 Schedule up and down
 MC Server needs to be a service
+Snapshots?
+DNS - for name res
+
 
 
 ##stuff##
@@ -97,11 +100,6 @@ cd /mnt/disks/mc
 mkdir mcserver
 sudo chown -R mcserver:mcserver /mcserver
 cd mcserver
-sudo apt install unzip
-sudo apt install wget
-sudo chown -R mcserver:mcserver /mcserver
-sudo wget https://minecraft.azureedge.net/bin-linux/bedrock-server-1.19.22.01.zip
-sudo unzip /mnt/disks/mc/mcserver/bedrock-server-1.19.22.01.zip -d /mnt/disks/mc/mcserver/
 sudo LD_LIBRARY_PATH=. ./bedrock_server
 
 
